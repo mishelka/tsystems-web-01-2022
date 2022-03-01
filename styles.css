@@ -2,6 +2,16 @@ body {
 	margin: 0;
 }
 
+a { text-decoration: none; }
+a:link {color: darkolivegreen}
+a:visited {color: cyan}
+a:hover, a:active {color: cyan; text-decoration: underline; }
+
+button:focus, button:hover,
+input[type="submit"]:focus, input[type="submit"]:hover {
+	background-color: antiquewhite;
+}
+
 p {
 	background-color: beige;
     margin-block-end: 30px;
@@ -78,3 +88,5 @@ h1, h2, h3, h4, h5, h6 {
 	background-position: center;
 	position: relative;
 }
+
+.red { color: red; }
