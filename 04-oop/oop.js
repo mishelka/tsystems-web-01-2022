@@ -20,7 +20,7 @@ const myFunction = () => {
     const obj4 = Object.create(obj3);
     console.log(obj4);
 
-    function Student(name, age, idCard) {
+    function Student(name, age, idCard = new IdCard(new Date(2045, 8, 1))) {
         this.name = name;
         this.age = age;
         this.idCard = idCard;
@@ -41,7 +41,9 @@ const myFunction = () => {
 
     const idCard = new IdCard(new Date(2022, 3, 3));
     const student = new Student("Jano", 16, idCard);
+    const student2 = new Student("Peter", 18);
     student.idCard.check();
+    console.log(student2);
 
     student.display();
     function Superclass() {
@@ -51,9 +53,9 @@ const myFunction = () => {
     function Subclass() {
         this.anOverride= function() {console.log("override child");};
     }
-    var base = new Superclass();
+    let base = new Superclass();
     Subclass.prototype = base;
-    var sub = new Subclass();
+    let sub = new Subclass();
     console.log(base, sub);
     sub.aBaseFunction();
     sub.anOverride();
