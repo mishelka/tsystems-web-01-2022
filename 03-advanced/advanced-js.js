@@ -3,6 +3,9 @@
 //global
 let arrayGlobal = [0, 1, 2];
 
+//ES5
+const nazovFunkcie1 = () => console.log("jfkdsa");
+
 //4
 const novaGlobalna = function () {
     console.log("globalna funkcia");
@@ -47,8 +50,8 @@ function changeObject(obj) {
     obj.age = 15;
 }
 
-function changeVar(vrbl) {
-    vrbl = 10;
+function changeVar(varbl) {
+    varbl = 10;
 }
 
 function changeArray(array) {
@@ -65,7 +68,7 @@ function callMyFunction(func) {
 }
 
 function displayConfirm() {
-    let r = confirm("Press a button");
+    const r = confirm("Press a button");
     if (r === true)
         document.write("Pressed OK!");
     else
@@ -73,7 +76,7 @@ function displayConfirm() {
 }
 
 function displayPrompt() {
-    let name = prompt("Enter your name", "Bond");
+    const name = prompt("Enter your name", "Bond");
     if (name !== null && name !== "")
         document.write("Hello " + name);
 }
