@@ -20,18 +20,29 @@ const myFunction = () => {
     const obj4 = Object.create(obj3);
     console.log(obj4);
 
-    function Student(name, age) {
+    function Student(name, age, idCard) {
         this.name = name;
         this.age = age;
+        this.idCard = idCard;
         this.display = () => {
             let result= "";
             result += this.name + " - " + this.age;
-            result += "<BR>";
-            document.write(result);
+            //result += "<BR>";
+            console.log(result);
         };
     };
 
-    const student = new Student("Jano", 16);
+    function IdCard(exspirationDate) {
+        this.exspirationDate = exspirationDate;
+        this.check = () => console.log(
+            exspirationDate.getMilliseconds() > new Date().getMilliseconds() ?
+            "Karta je overena" : "Karta je exspirovana");
+    }
+
+    const idCard = new IdCard(new Date(2022, 3, 3));
+    const student = new Student("Jano", 16, idCard);
+    student.idCard.check();
+
     student.display();
     function Superclass() {
         this.anOverride= function() {console.log("override parent");};
