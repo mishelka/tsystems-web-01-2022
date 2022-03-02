@@ -1,9 +1,11 @@
+"use strict"
+
 //Test on inputs 234 and 2132
-var numberToTest = "234";
+const numberToTest = "2132";
 
 //TODO: Fix main function
 function numberToText(num) {
-    var number = +numberToTest;
+    let number = +numberToTest;
 
     if(number >= 1000) {
         writeNumber(number % 1000);
@@ -12,7 +14,7 @@ function numberToText(num) {
     }
 
     if(number >= 100) {
-        writeNumber(number / 100);
+        writeNumber(Math.floor(number / 100));
         writeNumber(100);
         number %= 100;
     }
@@ -20,7 +22,7 @@ function numberToText(num) {
     if(number <= 20) {
         writeNumber(number);
     } else if(number < 100) {
-        writeNumber(number / 10 * 10);
+        writeNumber(Math.floor(number / 10) * 10);
         if(number % 10 == 0){
             writeNumber(number % 10);
         }

@@ -1,3 +1,4 @@
+"use strict"
 /*
   TODO: Expected output from the program for size = 10
              *
@@ -18,8 +19,9 @@ function printTriangle() {
     var str = '';
     while(i < size) {
         str = getChars(size - i - 1, ' ');
-        str += getChars(2 * (i + 1), '*');
+        str += getChars(2 * i + 1, '*');
         console.log(str);
+        i++;
     }
 }
 
