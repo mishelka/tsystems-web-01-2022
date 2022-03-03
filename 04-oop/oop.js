@@ -24,7 +24,8 @@ const myFunction = () => {
         this.name = name;
         this.age = age;
         this.idCard = idCard;
-        this.display = () => {
+        this.hairColor = "brown";
+        this.display = function() {
             let result= "";
             result += this.name + " - " + this.age;
             //result += "<BR>";
@@ -35,17 +36,24 @@ const myFunction = () => {
     function IdCard(exspirationDate) {
         this.exspirationDate = exspirationDate;
         this.check = () => console.log(
-            exspirationDate.getMilliseconds() > new Date().getMilliseconds() ?
+            exspirationDate.getTime() > new Date().getTime() ?
             "Karta je overena" : "Karta je exspirovana");
     }
 
     const idCard = new IdCard(new Date(2022, 3, 3));
-    const student = new Student("Jano", 16, idCard);
+    let student = new Student("Jano", 16, idCard);
     const student2 = new Student("Peter", 18);
     student.idCard.check();
     console.log(student2);
-
     student.display();
+    student.display = function() {console.log(this.name)};
+    student.display();
+    student2.display();
+    console.log(student.hairColor);
+
+    const x = 4;
+    //x = 7; cannot do!
+    
     function Superclass() {
         this.anOverride= function() {console.log("override parent");};
         this.aBaseFunction= function() {console.log("base function parent");};
