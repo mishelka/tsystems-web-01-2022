@@ -6,6 +6,8 @@ const myFunction = () => {
         age: 30,
     };
     console.log(obj);
+    obj.keys(); //["name", "age"]
+    obj.values(); //["Michaela", 30]
 
     const obj2 = Object.create(obj);
     obj2.name = "Peter";
