@@ -4,5 +4,14 @@
     </head>
     <body>
         <button onclick="myFunction()">Click me!</button>
+        <p></p>
+        <form name="personForm" 
+              onsubmit="return addPerson();">
+            <label for="name">Name:</label><br/>
+            <input type="text" name="name"/><br/>
+            <label for="number">Age:</label><br/>
+            <input type="number" name="age"/><br/>
+            <input type="submit" value="Add person"/>
+        </form>
     </body>
 </html>

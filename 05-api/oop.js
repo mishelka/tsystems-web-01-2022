@@ -1,20 +1,30 @@
 "use strict"
 
-const myFunction = () => {
-    class Person {
-        constructor(name, age) {
-            this.name = name;
-            this.age = age;
-        }
-    };
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+};
 
-    const persons = [
-        new Person("Michaela", 38),
-        new Person("Peter", 39),
-        new Person("Richard", 25),
-        new Person("Majo", 16),
-        new Person("Alzbeta", 55),
-    ];
+const persons = [
+    new Person("Michaela", 38),
+    new Person("Peter", 39),
+    new Person("Richard", 25),
+    new Person("Majo", 16),
+    new Person("Alzbeta", 55),
+];
+
+const addPerson = function() {
+    const formData = document.personForm;
+    const name = formData.name.value;
+    const age = formData.age.value;
+    persons.push(new Person(name, age));
+    console.log(persons);
+    return false;
+};
+
+const myFunction = () => {
 
     console.log(persons);
 
@@ -51,6 +61,9 @@ const myFunction = () => {
         else return previousVal + currentVal.age;
     });
     console.log(result);
+
+    persons.sort((p1, p2) => p1.name.localeCompare(p2.name))
+    console.log("Sorted persons: ", persons);
 
     const arrFromString = Array.from('ABCD');
     console.log(arrFromString.includes('A'));
