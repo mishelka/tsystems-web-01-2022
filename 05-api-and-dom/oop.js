@@ -15,6 +15,10 @@ const persons = [
     new Person("Alzbeta", 55),
 ];
 
+const json = JSON.stringify(persons);
+const objektZJsonu = JSON.parse(json);
+
+
 $(() => {renderPersonTable();});
 // document.addEventListener("DOMContentLoaded", function(event) { 
 //     renderPersonTable();
