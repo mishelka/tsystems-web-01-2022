@@ -15,43 +15,44 @@ const persons = [
     new Person("Alzbeta", 55),
 ];
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-    renderPersonTable();
-});
+$(() => {renderPersonTable();});
+// document.addEventListener("DOMContentLoaded", function(event) { 
+//     renderPersonTable();
+// });
 
-const renderPersonTable = () => {
-    const personTable = document.getElementById("personTable");
-    // const personTable = $("#personTable");
-    
+const renderPersonTable = () => {    
     // console.log(personTable.parentNode);
     // console.log(personTable.firstChild);
     // console.log(personTable.getAttribute("id"));
     // console.log(personTable.getAttributeNode("id"));
 
     let tableContent = "";
-
     for(let i in persons) {
         tableContent += 
         `<tr>
             <td>${persons[i].name}</td>
             <td>${persons[i].age}</td>
-            <td><button onclick={deletePerson(${i})}>Delete</button></td>
+            <td>
+              <button onclick={deletePerson(${i})}>
+                <span class="icon-bin"/>
+                Delete
+              </button>
+            </td>
         </tr>`;
     };
-
-    //other way - via createElement and append
+    //other way - via createElement and append:
     //for(let i in persons) {
         //const tr = document.createElement("tr");
         //tr.append(document.createElement("td"));
         //...
     //};
 
-
-    personTable.innerHTML = tableContent;
+    $("#personTable").html(tableContent);    
+    //document.getElementById("personTable").innerHTML = tableContent;
 }
 
 const deletePerson = id => {
-    const personTable = document.getElementById("personTable");
+    const personTable = $("#personTable");
     const elementToRemove = personTable.childNodes[id];
     personTable.removeChild(elementToRemove);
     console.log("deleting person id " + id);
