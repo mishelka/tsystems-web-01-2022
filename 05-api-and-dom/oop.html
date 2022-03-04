@@ -4,9 +4,10 @@
         <!-- <script type="text/javascript" src="./jquery-3.6.0.min.js"></script> -->
         <script src="./oop.js" type="text/javascript"></script>
         <link rel="stylesheet" href="./icomoon/style.css"></head>
+        <link rel="stylesheet" href="./oop.css"></head>
     </head>
     <body>
-        <button onclick="handleClickMeButton()">Click me!</button>
+        <!-- <button onclick="handleClickMeButton()">Click me!</button> -->
         <p>
             <table>
                 <thead>
@@ -21,7 +22,9 @@
                 </tbody>
             </table>
         </p>
-        <form name="personForm" 
+        <button id="newPersonButton" onclick="handleNewPerson()">New Person</button>
+
+        <form id="personForm" name="personForm" class="hidden"
               onsubmit="return handlePersonFormSubmit();">
             <label for="name">Name:</label><br/>
             <input type="text" name="name" onblur="handleNameOnBlur()"/><br/>

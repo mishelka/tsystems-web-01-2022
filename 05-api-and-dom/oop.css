@@ -1,0 +1,9 @@
+form, button {
+    opacity: 100%;
+    visibility: visible;    
+}
+
+form.hidden, button.hidden {
+   opacity: 0;
+   visibility: hidden;
+}

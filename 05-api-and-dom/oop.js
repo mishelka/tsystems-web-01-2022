@@ -20,6 +20,15 @@ $(() => {renderPersonTable();});
 //     renderPersonTable();
 // });
 
+const handleNewPerson = () => {
+    togglePersonForm();
+}
+
+const togglePersonForm = () => {
+    $("#personForm").toggleClass("hidden");
+    $("#newPersonButton").toggleClass("hidden");
+}
+
 const renderPersonTable = () => {    
     // console.log(personTable.parentNode);
     // console.log(personTable.firstChild);
@@ -76,6 +85,7 @@ const handlePersonFormSubmit = function() {
     persons.push(new Person(name, age));
     console.log(persons);
     renderPersonTable();
+    togglePersonForm();
     return false;
 };
 
