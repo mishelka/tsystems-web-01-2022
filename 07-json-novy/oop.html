@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- <script type="text/javascript" src="./jquery-3.6.0.min.js"></script> -->
+        <script src="./oop.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="./icomoon/style.css"></head>
+        <link rel="stylesheet" href="./oop.css"></head>
+    </head>
+    <body>
+        <!-- <button onclick="handleClickMeButton()">Click me!</button> -->
+        <p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="personTable">
+                    
+                </tbody>
+            </table>
+        </p>
+        <button id="newPersonButton" onclick="handleNewPerson()">New Person</button>
+
+        <form id="personForm" name="personForm" class="myForm hidden"
+              onsubmit="return handlePersonFormSubmit();">
+            <label for="name">Name:</label><br/>
+            <input type="text" name="name" onblur="handleNameOnBlur()"/><br/>
+            <label for="number">Age:</label><br/>
+            <input type="number" name="age"/><br/>
+            <input type="submit" value="Add person"/>
+        </form>
+    </body>
+</html>

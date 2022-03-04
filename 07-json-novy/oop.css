@@ -1,0 +1,12 @@
+form, button {
+    opacity: 100%;
+    visibility: visible;
+    transform: scale(100%);
+    transition: all 1000ms ease-in-out;
+}
+
+form.hidden, button.hidden {
+   opacity: 0;
+   visibility: hidden;
+   transform: scale(0);
+}
