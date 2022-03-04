@@ -1,14 +1,28 @@
 <html>
     <head>
+        <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"></script> -->
         <script src="./oop.js" type="text/javascript"></script>
     </head>
     <body>
-        <button onclick="myFunction()">Click me!</button>
-        <p></p>
+        <button onclick="handleClickMeButton()">Click me!</button>
+        <p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="personTable">
+                    
+                </tbody>
+            </table>
+        </p>
         <form name="personForm" 
-              onsubmit="return addPerson();">
+              onsubmit="return handlePersonFormSubmit();">
             <label for="name">Name:</label><br/>
-            <input type="text" name="name"/><br/>
+            <input type="text" name="name" onblur="handleNameOnBlur()"/><br/>
             <label for="number">Age:</label><br/>
             <input type="number" name="age"/><br/>
             <input type="submit" value="Add person"/>

@@ -1,6 +1,26 @@
 "use strict"
 
 window.onload = function () {
+    let arr = [ 1, 2, 3, 7, 1, 4, 2 ];
+    let arr2 = [ "a", "b", "c", ...arr, "d", "e"];
+    console.log(arr2);
+
+    let obj  = { x: 1, y: 2, a: 3, b: 4 };
+    let obj2 = { ...obj, x: 10, y: 20 };
+    console.log(obj2);
+
+    console.log(Math.max(1, 2, 3, 5, 1, 6, 2, 4));
+    console.log(Math.max(...arr));
+
+    let str 
+    = `Ahoj ja sa 
+ volam Michaela
+ fdsafasd
+ fsdafas
+ fsdfa`;
+    console.log(str.split(' '));
+
+
     defaultValues();
     _eval();
     _parseInt();

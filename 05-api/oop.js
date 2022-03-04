@@ -15,16 +15,70 @@ const persons = [
     new Person("Alzbeta", 55),
 ];
 
-const addPerson = function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
+    renderPersonTable();
+});
+
+const renderPersonTable = () => {
+    const personTable = document.getElementById("personTable");
+    // const personTable = $("#personTable");
+    
+    // console.log(personTable.parentNode);
+    // console.log(personTable.firstChild);
+    // console.log(personTable.getAttribute("id"));
+    // console.log(personTable.getAttributeNode("id"));
+
+    let tableContent = "";
+
+    for(let i in persons) {
+        tableContent += 
+        `<tr>
+            <td>${persons[i].name}</td>
+            <td>${persons[i].age}</td>
+            <td><button onclick={deletePerson(${i})}>Delete</button></td>
+        </tr>`;
+    };
+
+    //other way - via createElement and append
+    //for(let i in persons) {
+        //const tr = document.createElement("tr");
+        //tr.append(document.createElement("td"));
+        //...
+    //};
+
+
+    personTable.innerHTML = tableContent;
+}
+
+const deletePerson = id => {
+    const personTable = document.getElementById("personTable");
+    const elementToRemove = personTable.childNodes[id];
+    personTable.removeChild(elementToRemove);
+    console.log("deleting person id " + id);
+}
+
+const handleNameOnBlur = function () {
+    document.personForm.name.value = document.personForm.name.value.toUpperCase();
+};
+
+const handlePersonFormSubmit = function() {
+    const timer = () => console.log("Hello");
+    //setTimeout(timer, 1000);
+
     const formData = document.personForm;
     const name = formData.name.value;
-    const age = formData.age.value;
+    var r = /[a-z]+[0-9]/gi;
+    // /[0-9]{5}/
+    console.log(r.test(name));
+
+    const age = parseInt(formData.age.value);
     persons.push(new Person(name, age));
     console.log(persons);
+    renderPersonTable();
     return false;
 };
 
-const myFunction = () => {
+const handleClickMeButton = () => {
 
     console.log(persons);
 
@@ -35,6 +89,8 @@ const myFunction = () => {
             return false;
         });
     let result2 = persons.find(p => p.name.startsWith('M'));
+    result2 = persons.find(p => p.name.charAt(0) === 'M');
+    result2 = persons.find(p => p.name[0] === 'M');
     console.log(result, result2);
 
     result = persons.filter(p => p.name.startsWith('M') && p.age < 30);
