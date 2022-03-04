@@ -24,6 +24,18 @@ const getDataFromApiNewJS = async () => {
     }
 };
 
+const deletePersonOnServer = async id => {
+    try {
+        const response = await fetch(BASE_URL + "/" + id, {method: 'DELETE'});
+        // takto sa robi post, put:
+        //const response = await fetch(BASE_URL + "/" + id, {method: 'POST', body: objektNovehoPersonuAleboEditovanehoPersonu});
+        if(await response.status === 200)
+            getDataFromApiNewJS();
+    } catch(err) {
+        console.error("Sorry, an error occured", err);
+    }
+};
+
 const getDataFromApiAjax = () => {
     const request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
 
@@ -86,10 +98,11 @@ const renderPersonTable = () => {
 }
 
 const deletePerson = id => {
-    const personTable = $("#personTable");
-    const elementToRemove = personTable.childNodes[id];
-    personTable.removeChild(elementToRemove);
-    console.log("deleting person id " + id);
+    // const personTable = $("#personTable");
+    // const elementToRemove = personTable.childNodes[id];
+    // personTable.removeChild(elementToRemove);
+    // console.log("deleting person id " + id);
+    deletePersonOnServer(id);
 }
 
 const handleNameOnBlur = function () {
